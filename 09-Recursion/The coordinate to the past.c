@@ -85,7 +85,8 @@ int decipher(int arr[], int total_num){
     int arr_sum_o[10000];
     int convert_arr_sum_o[10000];
     
-    if(sum_o >= 16){ /// or >15
+    
+	if(sum_o >= 16){ /// or >15
         int i = 0;
         while(sum_o){
             arr_sum_o[i] = sum_o % 16;
