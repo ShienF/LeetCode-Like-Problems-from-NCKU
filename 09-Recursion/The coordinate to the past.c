@@ -40,7 +40,36 @@ b4b4
 /*code*/
 #include<stdio.h>
 
-int cipher(int arr[], int total_num){
+int decipher(int arr[], int total_num);
+
+int main () {
+    int arr[10000];
+    int c;
+    int ch;
+    int num;
+    int i =0;
+    
+    ///if scanf %x, it could be overflow
+    while((ch = getchar()) != '\n'){
+        if('0' <= ch & ch <= '9'){
+            num = ch - '0';
+        }
+        else if('a' <= ch & ch <= 'f'){
+             num = ch - 'a' + 10;
+        }
+        else if('A' <= ch & ch <= 'F'){
+             num = ch - 'A' + 10;
+        }
+        arr[i] = num;
+        i++;
+    }
+  
+    decipher(arr, i);
+    
+    return 0;
+}
+
+int decipher(int arr[], int total_num){
 	int sum_e = 0;
     int sum_o = 0;
 
@@ -71,7 +100,7 @@ int cipher(int arr[], int total_num){
             k++;
         }
 
-        cipher(convert_arr_sum_o, i);
+        decipher(convert_arr_sum_o, i);
     }
     else{
        printf("%x",sum_o);
@@ -94,39 +123,11 @@ int cipher(int arr[], int total_num){
             k++;
         }
         
-        cipher(convert_arr_sum_e, i);
+        decipher(convert_arr_sum_e, i);
     }
     else{
         printf("%x",sum_e);
     }
     
 
-}
-
-int main () {
-    int arr[10000];
-    int c;
-    int ch;
-    int num;
-    int i =0;
-    
-    ///if scanf %x, it could be overflow
-    while((ch = getchar()) != '\n'){
-        if('0' <= ch & ch <= '9'){
-            num = ch - '0';
-        }
-        else if('a' <= ch & ch <= 'f'){
-             num = ch - 'a' + 10;
-        }
-        else if('A' <= ch & ch <= 'F'){
-             num = ch - 'A' + 10;
-        }
-        arr[i] = num;
-        i++;
-    }
-   
-    
-    cipher(arr, i);
-    
-    return 0;
 }
