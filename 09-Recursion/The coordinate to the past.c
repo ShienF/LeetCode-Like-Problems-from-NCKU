@@ -35,9 +35,9 @@ Input
 ffffffffff
 Output
 b4b4
-/*
+*/
 
-//code
+/*code*/
 #include<stdio.h>
 
 int cipher(int arr[], int total_num){
