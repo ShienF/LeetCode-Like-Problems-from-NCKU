@@ -173,7 +173,7 @@ void quicksort(int a[], int low, int high) {
     	return;
     }
 
-    for(int i=0; i<size; i++){
+    for(int i=0; i<size; i++){ ///size is global variable
         if(i==low){
         printf("[ ");
         }
