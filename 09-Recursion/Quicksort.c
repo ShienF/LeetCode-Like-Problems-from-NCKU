@@ -166,12 +166,13 @@ int main(void){
 }
 
 void quicksort(int a[], int low, int high) {
-
-    int p = partition(a, low, high);
-
-    if(low >= high){ ///termination
+	
+	if(low >= high){ ///termination: one number cannot do (only above 2 numbers can do)
     	return;
     }
+	
+    int p = partition(a, low, high);
+    
 
     for(int i=0; i<size; i++){ ///size is global variable
         if(i==low){
@@ -193,19 +194,17 @@ void quicksort(int a[], int low, int high) {
         }
     }
    
-    if(p!=0){ ///termination
-        quicksort(a,low,p-1);
-    }
+	quicksort(a,low,p-1);
     quicksort(a,p+1,high);
 
 }
 
 int partition(int a[], int low, int high) {
 
-	int p = high;
-    int s=-1;
-    for(int i=0; i<high; i++){
-        if(a[i] <= a[p]){
+	int p = a[high]; ///p as pivot
+    int s= low - 1; ///s is not always 0; s represents the smaller one than pivot
+    for(int i=low; i<high; i++){ ///i starts from low
+        if(a[i] <= p){
             s++;
             swap(a[s],a[i])
         }
